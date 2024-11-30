@@ -1,3 +1,20 @@
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute("href");
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  });
+});
+
 // Scroll to Top Button
 const scrollToTopButton = document.getElementById("scroll-to-top");
 
@@ -20,7 +37,6 @@ scrollToTopButton.addEventListener("click", () => {
 const themeToggle = document.getElementById("theme-toggle");
 const logo = document.getElementById("logo");
 
-// List of images to toggle
 const imageMappings = [
   {
     day: "images/miscellaneous/contact-section-day.png",
@@ -44,33 +60,51 @@ const imageMappings = [
   },
 ];
 
-// Toggle dark and light mode
 themeToggle.addEventListener("change", () => {
   const isDarkMode = themeToggle.checked;
 
-  // Toggle body class for dark mode
   document.body.classList.toggle("dark-mode", isDarkMode);
 
-  // Update the logo based on the mode
   logo.src = isDarkMode
     ? "images/logo/logo-night.png"
     : "images/logo/logo-day.png";
 
-  // Update images based on the mode
   imageMappings.forEach(({ day, night, element }) => {
     if (element) {
       element.src = isDarkMode ? night : day;
     }
   });
 
-  // Update Download CV button colors
   document.querySelectorAll(".download-cv").forEach((button) => {
     button.style.backgroundColor = isDarkMode ? "#6b5e53" : "#e4c5a7";
   });
 });
 
-// Contact Form Submission
-document.querySelector(".contact-form").addEventListener("submit", (e) => {
-  e.preventDefault();
+// Form Validation and Submission
+const contactForm = document.getElementById("contact-form");
+
+contactForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  if (!name || !email || !message) {
+    alert("Please fill out all fields before submitting.");
+    return;
+  }
+
+  if (!validateEmail(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
   alert("Your message has been submitted. Thank you!");
+  contactForm.reset();
 });
+
+function validateEmail(email) {
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(email);
+}
