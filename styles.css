@@ -1,44 +1,84 @@
-/* Font */  
+/* Font */
 @font-face {
-  font-family: 'Helvetica';
-  src: url('/font/helvetica/Helvetica.woff') format('woff');
+  font-family: "Helvetica";
+  src: url("/font/helvetica/Helvetica.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Helvetica';
-  src: url('/font/helvetica/Helvetica-Bold.woff') format('woff');
+  font-family: "Helvetica";
+  src: url("/font/helvetica/Helvetica-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
 }
 
-/* Root Variables */
+/* Root */
 :root {
   --background-color: #f4f1e8;
   --text-color: #161616;
   --accent-color: #e4c5a7;
-  --font-size-base: 1rem; /* Base font size */
-  --spacing-base: 1rem;   /* Base spacing */
-  --line-height: 1.6;     /* Base line height */
-  --container-width: 90%; /* Default container width */
+  --font-family: "Poppins", sans-serif;
 }
 
 /* Body */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-family);
   background-color: var(--background-color);
   color: var(--text-color);
-  line-height: 1.6;
   transition: background-color 0.3s, color 0.3s;
 }
 
 body.dark-mode {
-  --background-color: #161616; /* Pure black for a cleaner look */
-  --text-color: #fefefe; /* Bright white for text */
-  --accent-color: #C3A888; /* Gold accent color for lines and borders */
-  background-color: var(--background-color);
-  color: var(--text-color);
+  --background-color: #161616;
+  --text-color: #fefefe;
+  --accent-color: #c3a888;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--text-color);
+  border: none;
+  border-radius: 50%; /* Ensures the button is circular */
+  width: 50px; /* Adjust width for smaller size */
+  height: 50px; /* Adjust height for smaller size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.scroll-to-top.hidden {
+  display: none;
+}
+
+/* Arrow Icon */
+.arrow-icon {
+  width: 20px; /* Reduce image size inside the button */
+  height: 20px; /* Maintain aspect ratio */
+  filter: invert(0); /* Adjust icon color for light mode */
+  transition: filter 0.3s ease-in-out;
+}
+
+/* Adjust for dark mode */
+body.dark-mode .scroll-to-top {
+  background-color: var(--accent-color);
+}
+
+body.dark-mode .arrow-icon {
+  background-color: var(--accent-color);
+}
+
+/* Hover Effect */
+.scroll-to-top:hover {
+  transform: translateY(-5px);
+  background-color: var(--accent-color);
 }
 
 /* Header */
@@ -47,18 +87,25 @@ body.dark-mode {
   justify-content: space-between;
   align-items: center;
   padding: 20px 10px;
-  border-bottom: 1px solid var(--accent-color); /* Adjusts top/bottom and left/right padding */
+  border-bottom: 1px solid var(--accent-color);
   position: relative;
-  width: calc(100% - 40px); /* Adjust the width to leave space on the sides */
-  max-width: 1200px; /* Optional: set a maximum width */
-  margin: 0 auto; /* Centers the header line */
+  width: calc(100% - 40px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo img {
+  height: 60px;
+  width: auto;
+  display: block;
 }
 
 /* Navigation Links */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 2rem; /* Adds spacing between links */
+  gap: 2rem;
   margin: 0;
 }
 
@@ -66,36 +113,21 @@ body.dark-mode {
   text-decoration: none;
   color: var(--text-color);
   font-size: 1rem;
-  padding-bottom: 5px; /* Space between text and the hover/active line */
-  border-bottom: 2px solid transparent; /* Default is invisible */
-  transition: border-color 0.3s; /* Smooth animation */
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s;
 }
 
 .nav-links a:hover {
-  border-bottom: 2px solid var(--accent-color); /* Adds a visible line when hovering */
+  border-bottom: 2px solid var(--accent-color);
 }
 
 .nav-links a.active {
-  border-bottom: 2px solid var(--accent-color); /* Keeps the line for the active page */
+  border-bottom: 2px solid var(--accent-color);
 }
 
 nav {
-  margin-left: auto; /* Push the navigation links to the far right */
-}
-
-/* Logo */
-.logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  margin-left: 0px; /* Adds space to the left */
-  margin-top: 0px;  /* Reduces space above */
-}
-
-.logo img {
-  height: 60px; /* Adjust height if needed */
-  width: auto;
-  display: block;
+  margin-left: auto;
 }
 
 /* Toggle Switch */
@@ -104,10 +136,6 @@ nav {
   width: 50px;
   height: 25px;
   margin-left: 40px;
-}
-
-.toggle-switch input {
-  display: none;
 }
 
 .toggle-switch .slider {
@@ -163,7 +191,7 @@ nav {
 /* "Hello, I am Alyssa!" Styling */
 .hero-intro {
   font-size: 2rem; /* Base font size */
-  font-family: 'Radley', sans-serif;
+  font-family: "Radley", sans-serif;
   margin-top: 2rem; /* Adjust the space above "Hello, I am Alyssa!" */
   margin-bottom: 1rem; /* Space below */
   font-weight: normal;
@@ -179,26 +207,24 @@ nav {
   letter-spacing: 0px;
 }
 
-
 /* "WELCOME TO MY PORTFOLIO" Styling */
 .hero-heading {
   text-align: left;
-  font-family: 'Radley', serif; /* A clean serif font */
+  font-family: "Radley", serif; /* A clean serif font */
   line-height: 0.8;
   margin-bottom: 2rem;
   margin-left: 2rem;
-
 }
 
 .welcome-text {
   font-size: 5rem;
   font-weight: normal;
   display: block; /* Place on its own line */
-  font-family: 'Radley', serif;
+  font-family: "Radley", serif;
 }
 
 .portfolio-text {
-  font-family: 'Helvetica', sans-serif; /* Bold, sans-serif text */
+  font-family: "Helvetica", sans-serif; /* Bold, sans-serif text */
   font-size: 16.5vw;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -219,10 +245,9 @@ nav {
   flex-grow: 1; /* Allow the line to grow */
   height: 1px; /* Thin line */
   max-width: calc(100% - 250px); /* Set a specific max width for the line */
-  background-color: #C3A888; /* Accent color for the line */
+  background-color: #c3a888; /* Accent color for the line */
   margin: 1em; /* Reset margin */
 }
-
 
 .button-container {
   right: 5%;
@@ -231,29 +256,42 @@ nav {
 }
 
 .download-cv {
-  font-size: 1.1rem; /* Increase font size for the button text */
+  font-size: 1.1rem;
   text-decoration: none;
-  padding: 0.8rem 2rem; /* Increase padding for a larger button */
-  border: 2px solid #C3A888; /* Slightly thicker border */
-  background-color: transparent;
-  color: var(--text-color); /* Match the theme */
+  padding: 0.8rem 2rem;
+  border: 2px solid var(--accent-color);
+  background-color: #e4c5a7; /* Light mode background color */
+  color: var(--text-color);
   text-transform: uppercase;
-  border-radius: 5px; /* Keep rounded corners consistent */
+  border-radius: 5px;
   transition: all 0.3s ease-in-out;
-  white-space: nowrap; /* Prevent text wrapping */
+  white-space: nowrap;
 }
 
 .download-cv:hover {
-  background-color: #C3A888; /* Highlight background on hover */
-  color: var(--background-color); /* Invert text color on hover */
+  background-color: var(--accent-color);
+  color: var(--background-color);
 }
+
+/* Dark Mode Styles */
+body.dark-mode .download-cv {
+  background-color: #6b5e53; /* Darker background for dark mode */
+  color: #fefefe; /* Light text for contrast */
+  border: 2px solid #c3a888;
+}
+
+body.dark-mode .download-cv:hover {
+  background-color: #c3a888;
+  color: #161616;
+}
+
 
 /* General Section Styling */
 .about-section {
   padding: 2rem;
   background-color: #f9f8f6; /* Light beige */
   color: #333333; /* Text color */
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-family);
   text-align: center;
 }
 
@@ -316,7 +354,7 @@ nav {
   text-transform: uppercase;
   border-bottom: 2px solid #c3a888; /* Gold underline for section titles */
   padding-bottom: 0.5rem;
-  color: #5E503F; /* Gold */
+  color: #5e503f; /* Gold */
 }
 
 .details-grid p {
@@ -341,7 +379,7 @@ nav {
 }
 
 .profile-card a {
-  color: #5E503F;
+  color: #5e503f;
   text-decoration: none;
 }
 
@@ -371,72 +409,258 @@ nav {
   border-radius: 5px;
 }
 
+.project-one img {
+  height: 500px;
+  width: auto;
+  display: block;
+}
+
+.project-two-label img {
+  height: 110px;
+  width: auto;
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.project-two-label p {
+  text-align: center;
+  flex: 1;
+  font-size: 13px; /* Adjust font size */
+  font-family: var(--font-family); /* Choose the font family */
+  color: var(--text-color); /* Ensure it matches your theme */
+  line-height: 1.6; /* Adjust line height for readability */
+  margin: 0 10rem; /* Add spacing */
+}
+
+
+.project-three {
+  flex: 1 1 100%; /* Adjust layout size */
+  text-align: center; /* Align content */
+}
+
+.project-three img {
+  height: 600px;
+  width: auto;
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.project-three p {
+  flex: 1;
+  font-size: 13px; /* Adjust font size */
+  font-family: var(--font-family); /* Choose the font family */
+  color: var(--text-color); /* Ensure it matches your theme */
+  line-height: 1.6; /* Adjust line height for readability */
+  margin: 1rem 2rem 0 30rem; /* Add spacing */
+}
+
+/* Services Section */
+.services {
+  display: flex;
+  justify-content: center; /* Distribute cards evenly with equal spacing */
+  align-items: flex-start;
+  gap: 2rem; /* Slight gap between cards */
+  padding: 2rem 1rem; /* Add padding for better spacing */
+  max-width: 1200px;
+  margin: 0 auto; /* Center the section */
+}
+
+.service-card {
+  width: 250px; /* Slightly reduced width for better alignment */
+  padding: 20px; /* Adjust padding for a clean look */
+  background-color: #fff;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.service-card img {
+  width: 100%; /* Ensure image fits the card */
+  max-width: 140px; /* Restrict max width */
+  height: auto; /* Maintain aspect ratio */
+  margin: 0 auto 15px; /* Center the image and add spacing below */
+}
+
+.service-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+
+.service-card img {
+  width: 100%; /* Image fills the card width */
+  max-width: 150px; /* Reduced maximum width */
+  height: auto; /* Maintain the aspect ratio */
+  margin-bottom: 10px; /* Space between image and text */
+}
+
+.service-card h3 {
+  font-size: 1rem; /* Consistent heading size */
+  margin: 10px 0 5px; /* Adjust spacing above and below */
+  color: #333; /* Darker text for better readability */
+}
+
+.service-card p {
+  font-size: 0.875rem; /* Smaller text for description */
+  color: #666; /* Subtle color for text */
+  line-height: 1.4; /* Improved readability */
+}
+
 /* Contact Section */
+#contact {
+  display: flex; /* Use flexbox to align elements */
+  justify-content: space-between; /* Space between contact info and form */
+  align-items: flex-start; /* Align items to the top */
+  max-width: 1200px; /* Adjust container width */
+  margin: 0 auto; /* Center the contact section */
+  padding: 50px; /* Add padding for spacing */
+}
+
+.contact-container {
+  display: flex; /* Arrange items in a row */
+  justify-content: space-between; /* Space between elements */
+  align-items: flex-start; /* Align items at the top */
+  max-width: 1200px; /* Limit the width of the entire contact section */
+  margin: 0 auto; /* Center the container */
+  padding: 20px; /* Add some spacing around */
+  gap: 40px;
+}
+
 .contact-section {
-  padding: 2rem;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-start; /* Align to the left */
+  margin-top: 30px; /* Adjust spacing from the section above */
+  padding-left: 20px; /* Add slight indentation */
+}
+
+.contact-section img {
+  max-width: 55%; /* Adjust the image width */
+  height: auto;
+  display: block;
+  margin-right: -2rem;
+  margin-left: 1rem; /* Add spacing to the right of the image */  /* Add spacing to the right of the image */
+  margin-top: 1rem; /* Space below the statement */
+  margin-bottom: 1rem; /* Space below the statement */
+}
+
+.contact-statement {
+  font-size: 1.2rem; /* Slightly larger font size */
+  font-weight: bold; /* Emphasize with bold text */
+  margin-bottom: 10px; /* Space below the statement */
+}
+
+.contact-info {
+  flex: 1;
+  max-width: 40%; /* Adjust the width of the contact information */
+  text-align: left; /* Align text to the left */
+  width: 40%;
+}
+
+
+.contact-info p {
+  margin: 0; /* Remove any extra margins */
+  line-height: 1.6; /* Adjust line spacing for readability */
+  margin-left: 4rem; /* Add spacing to the right of the image */  /* Add spacing to the right of the image */
+
 }
 
 .contact-section form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  width: 50%; /* Set width for the form section */
+  margin-left: auto; /* Ensure it aligns to the right */
+  flex: 1; /* Ensure the form takes appropriate space */
+  margin-top: -25rem;
+  margin-bottom: 8rem;
+  margin-right: 3rem;
   max-width: 400px;
-  margin: 0 auto;
 }
 
 .contact-section form input,
 .contact-section form textarea {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.8rem;
   border: 1px solid #ddd;
   border-radius: 5px;
+  font-family: var(--font-family);
+  margin-bottom: 1rem;
+  font-family: var(--font-family);s
 }
 
 .contact-section form button {
-  padding: 0.7rem;
+  margin-top: 1rem;
+  background-color: var(--accent-color); /* Theme color */
   border: none;
-  background-color: var(--accent-color);
-  color: var(--background-color);
-  font-size: 1rem;
   border-radius: 5px;
+  padding: 0.8rem;
   cursor: pointer;
 }
 
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 1rem;
+.contact-section form button {
+  margin-top: 1rem;
+  background-color: var(--accent-color); /* Primary color */
+  color: var(--text-color); /* Text color */
+  font-size: 1rem; /* Slightly larger font size */
+  font-weight: bold; /* Make the text bold */
+  border: none;
+  border-radius: 5px;
+  padding: 0.8rem 1.5rem; /* Adjust padding for better sizing */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
 }
 
+.contact-section form button:hover {
+  background-color: #c3a888; /* Slightly darker shade on hover */
+  color: #ffffff; /* Invert text color */
+  transform: translateY(-3px); /* Lift the button */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
 
-  /* Smaller screens */
+/* Smaller screens */
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align elements */
+  }
+
+  .contact-section img {
+    max-width: 100%; /* Allow the image to shrink on smaller screens */
+    margin-bottom: 1rem;
+  }
+
+  .contact-section form {
+    max-width: 100%; /* Allow the form to grow on smaller screens */
+  }
+}
+
 @media (max-width: 600px) {
-:root {
-  --font-size-base: 0.8rem;
-  --spacing-base: 0.5rem;
-  --line-height: 1.5;
-  --container-width: 95%;
-}
+  :root {
+    --font-size-base: 0.8rem;
+    --spacing-base: 0.5rem;
+    --line-height: 1.5;
+    --container-width: 95%;
+  }
 
-.about-section {
-  flex-direction: column;
-  gap: 1rem;
-}
+  .about-section {
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-.about-content {
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 
-.project-list {
-  flex-direction: column;
-  gap: 1.5rem;
-}
+  .project-list {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
-.project {
-  flex: 1 1 100%;
-  max-width: 100%;
+  .project {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
-}
-

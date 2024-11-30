@@ -7,13 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Radley:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" href="images/logo/favicon.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<!-- Header Section -->
   <header class="header">
-    <a href="#home" class="logo">
-        <img id="logo" src="images/logo/logo-day.png" alt="Alyssa Dopeño Logo, Light Theme">
-    </a>
+    <a href="#home" class="logo"><img id="logo" src="images/logo/logo-day.png" alt="Alyssa Dopeño Logo, Light Theme"></a>
     <nav>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
@@ -27,7 +27,7 @@
       <span class="slider"></span>
     </label>
   </header>
-
+<!-- Hero Section -->
   <section class="hero">
     <h1 class="hero-intro">
       <span class="italic-text">Hello, </span>
@@ -42,7 +42,7 @@
   <a href="#" class="download-cv">Download CV</a>
 </section>
 
-<section class="about-section">
+<section id="about" class="about-section">
   <div class="about-header">
     <h1 class="section-title">ABOUT</h1>
     <div class="about-content">
@@ -61,9 +61,9 @@
     <div class="education">
       <h2>EDUCATION</h2>
       <p>Bachelor of Science in Psychology</p>
-      <p>Bohol Island State University – Main Campus (BSU-MC)<br />2019 – 2023</p>
+      <p>Bohol Island State University – Main Campus (BISU-MC)<br />2019 – 2023</p>
       <p>Professional Teaching Certification (PTC)</p>
-      <p>Bohol Island State University – Main Campus (BSU-MC)<br />2024 – 2025</p>
+      <p>Bohol Island State University – Main Campus (BISU-MC)<br />2024 – 2025</p>
     </div>
     <div class="training">
       <h2>TRAINING</h2>
@@ -75,7 +75,7 @@
       <p>Graphic Designer<br />CEO Builders, Inc. | Part-time | 2021</p>
     </div>
     <div class="profile-card">
-      <h3>ALYSSA DOPEÑO | 24 y/o</h3>
+      <p>ALYSSA DOPEÑO | 24 y/o</p>
       <p>Bohol, Philippines</p>
       <p>dopenoalyssa04@gmail.com</p>
       <p><a href="https://linkedin.com/in/alyssadopeno">linkedin.com/in/alyssadopeno</a></p>
@@ -86,24 +86,54 @@
   <section id="projects" class="projects-section">
     <h2>Projects</h2>
     <div class="project-list">
-      <div class="project">
-        <img src="placeholder-project1.jpg" alt="Social Media Creatives">
-        <h3>Social Media Creatives</h3>
+      <div class="project-one">
+        <img src="/images/miscellaneous/social-media-creatives-day.png" alt="Social Media Creatives">
       </div>
-      <div class="project">
-        <img src="placeholder-project2.jpg" alt="Product Mockups">
-        <h3>Product Mockups</h3>
+      <div class="project-two-label">
+        <img src="/images/miscellaneous/product-mockups-day.png" alt="Product Mockups">
+        <p>Need a mock-up for any product? I'm here to help bring your ideas to life. Whether it's for personal use, promotional campaigns, or professional branding, I can create visually stunning designs tailored to your needs. Just reach out, share your vision, and together, we’ll craft the perfect visuals that truly stand out and make an impact. Let’s turn your concepts into reality with creativity and precision!</p>
       </div>
-      <div class="project">
-        <img src="placeholder-project3.jpg" alt="UX/UI Design">
-        <h3>UX/UI Design</h3>
+        <div class="project-two">
+        <section class="services">
+          <div class="service-card">
+            <div class="service-image">
+              <img src="/images/miscellaneous/custom-apparel.png" alt="Service 1">
+            </div>
+            <h3>Custom Apparel</h3>
+            <p>Personalized apparel for any occasion</p>
+          </div>
+          <div class="service-card">
+            <div class="service-image">
+              <img src="/images/miscellaneous/custom-mugs.png" alt="Service 2">
+            </div>
+            <h3>Custom Mugs</h3>
+            <p>Unique and functional designs for everyday use</p>
+          </div>
+          <div class="service-card">
+            <div class="service-image">
+              <img src="/images/miscellaneous/custom-bags.png" alt="Service 3">
+            </div>
+            <h3>Custom Bags</h3>
+            <p>Stylish and practical for all your needs</p>
+          </div>
+        </section>
+      </div>
+      <div class="project-three">
+        <img src="/images/miscellaneous/ux-design-day.png" alt="UX/UI Design">
+        <p>I'm passionate about crafting seamless and visually engaging user experiences for both mobile and web platforms. This project showcases my skills in creating intuitive login and product browsing interfaces that focus on user accessibility and modern design. I'm currently open to similar UX/UI design opportunities, where I can bring fresh, user-centered solutions to dynamic projects.</p>
       </div>
     </div>
   </section>
 
   <section id="contact" class="contact-section">
-    <h2>Reach Out</h2>
+    <img src="/images/miscellaneous/contact-section-day.png" alt="Contact Message" />
+    <div class="contact-info">
+      <p class="contact-statement">YOU CAN ALSO CONTACT ME VIA:</p> 
+    <p><i class="fas fa-phone"></i>  094-57630-932</p>
+    <p><i class="fas fa-envelope"></i>  dopenoalyssa04@gmail.com</p>
+    </div>
     <form>
+      
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" id="name" placeholder="Your Name">
@@ -120,9 +150,10 @@
     </form>
   </section>
 
-  <footer class="footer">
-    <p>© 2024 Alyssa Dopeño</p>
-  </footer>
+  <button id="scroll-to-top" class="scroll-to-top hidden">
+    <img src="/images/miscellaneous/arrow.png" alt="Scroll to Top" class="arrow-icon" />
+  </button>
+
   <script src="script.js"></script>
 </body>
 </html>
