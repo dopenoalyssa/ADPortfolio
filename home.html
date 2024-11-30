@@ -11,7 +11,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- Header Section -->
+
+  <!-- Header Section -->
   <header class="header">
     <a href="#home" class="logo"><img id="logo" src="images/logo/logo-day.png" alt="Alyssa Dopeño Logo, Light Theme"></a>
     <nav>
@@ -27,7 +28,8 @@
       <span class="slider"></span>
     </label>
   </header>
-<!-- Hero Section -->
+  
+  <!-- Hero Section -->
   <section class="hero">
     <h1 class="hero-intro">
       <span class="italic-text">Hello, </span>
@@ -42,49 +44,55 @@
   <a href="#" class="download-cv">Download CV</a>
 </section>
 
-<section id="about" class="about-section">
-  <div class="about-header">
-    <h1 class="section-title">ABOUT</h1>
-    <div class="about-content">
-      <div class="about-text">
-        <p>
-          I'm a passionate learner and a graduate in Psychology from the Philippines. Currently, I'm expanding my skills in web development through Code Blossom, where I'm focusing on creating engaging digital projects. With a strong interest in self-help and personal growth, I'm dedicated to applying my knowledge to inspire others and continuously improve. In my free time, I enjoy reading, watching movies, listening to music, and exploring new ideas.
-        </p>
+  <!-- About Section -->
+<section class="about-section">
+  <div class="about-container">
+    <div class="about-left">
+      <h1 id="about" class="section-title">About Me</h1>
+      <p class="about-description">
+        I'm a passionate learner and a graduate in Psychology from the Philippines. Currently, I'm expanding my skills in web development through Code Blossom, where I'm focusing on creating engaging digital projects. With a strong interest in self-help and personal growth, I'm dedicated to applying my knowledge to inspire others and continuously improve. In my free time, I enjoy reading, watching movies, listening to music, and exploring new ideas.
+      </p>
+      <div class="details-container">
+        <div class="details-box">
+          <h3>Education</h3>
+          <h6>Bachelor of Science in Psychology</h6>
+          <p>Bohol Island State University — Main Campus (2019 – 2023)</p>
+          <h6>Professional Teaching Certification (PTC)</h6>
+          <p>Bohol Island State University — Main Campus (2024 – 2025)</p>
+        </div>
+        <div class="details-box">
+          <h3>Training</h3>
+          <h6>Google UX Design</h6>
+          <p>Coursera | 2024</p>
+          <h6>Code Blossom Certification Program</h6>
+          <p>Full-stack Development (2024 – present)</p>
+        </div>
+        <div class="details-box">
+          <h3>Experience</h3>
+          <h6>Graphic Designer</h6>
+          <p>CEO Builders, Inc. | Part-time | 2021</p>
+        </div>
       </div>
-      <div class="about-image">
-        <img src="/images/avatar.png" alt="Profile picture" />
+    </div>
+    <div class="about-right">
+      <img src="/images/avatar.png" alt="Alyssa Dopeño" class="about-image" />
+      <div class="profile-card">
+        <h2>ALYSSA DOPEÑO</h2>
+        <p>24 y/o | Bohol, Philippines</p>
+        <a href="mailto:dopenoalyssa04@gmail.com" class="contact-icon">
+          <i class="fas fa-envelope"></i> dopenoalyssa04@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/alyssadopeno" target="_blank" class="contact-icon">
+          <i class="fab fa-linkedin"></i> linkedin.com/in/alyssadopeno
+        </a>
       </div>
-    </div>
-  </div>
-
-  <div class="details-grid">
-    <div class="education">
-      <h2>EDUCATION</h2>
-      <p>Bachelor of Science in Psychology</p>
-      <p>Bohol Island State University – Main Campus (BISU-MC)<br />2019 – 2023</p>
-      <p>Professional Teaching Certification (PTC)</p>
-      <p>Bohol Island State University – Main Campus (BISU-MC)<br />2024 – 2025</p>
-    </div>
-    <div class="training">
-      <h2>TRAINING</h2>
-      <p>Google UX Design<br />Coursera | 2024</p>
-      <p>Code Blossom Certification Program<br />Full-stack Development | 2024 – present</p>
-    </div>
-    <div class="experience">
-      <h2>EXPERIENCE</h2>
-      <p>Graphic Designer<br />CEO Builders, Inc. | Part-time | 2021</p>
-    </div>
-    <div class="profile-card">
-      <p>ALYSSA DOPEÑO | 24 y/o</p>
-      <p>Bohol, Philippines</p>
-      <p>dopenoalyssa04@gmail.com</p>
-      <p><a href="https://linkedin.com/in/alyssadopeno">linkedin.com/in/alyssadopeno</a></p>
     </div>
   </div>
 </section>
 
-  <section id="projects" class="projects-section">
-    <h2>Projects</h2>
+<!-- Project Section -->
+<section id="projects" class="projects-section">
+    <h1 class="project-title">Projects</h1>
     <div class="project-list">
       <div class="project-one">
         <img src="/images/miscellaneous/social-media-creatives-day.png" alt="Social Media Creatives">
@@ -125,35 +133,44 @@
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact" class="contact-section">
     <img src="/images/miscellaneous/contact-section-day.png" alt="Contact Message" />
     <div class="contact-info">
       <p class="contact-statement">YOU CAN ALSO CONTACT ME VIA:</p> 
-    <p><i class="fas fa-phone"></i>  094-57630-932</p>
-    <p><i class="fas fa-envelope"></i>  dopenoalyssa04@gmail.com</p>
+    <p><i class="fas fa-phone"></i> 094-57630-932</p>
+    <p><i class="fas fa-envelope"></i> dopenoalyssa04@gmail.com</p>
     </div>
     <form>
-      
+      <form id="contact-form">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Your Name">
+        <input type="text" id="name" placeholder="Your Name" required>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Your Email">
+        <input type="email" id="email" placeholder="Your Email" required>
       </div>
       <div class="form-group">
         <label for="message">Message</label>
-        <textarea id="message" placeholder="Your Message"></textarea>
+        <textarea id="message" placeholder="Your Message" required></textarea>
       </div>
       <button type="submit">Submit Now</button>
     </form>
   </section>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2024 Alyssa Dopeño. All rights reserved.</p>
+  </footer>
+
+  <!-- Scroll-to-top button -->
   <button id="scroll-to-top" class="scroll-to-top hidden">
     <img src="/images/miscellaneous/arrow.png" alt="Scroll to Top" class="arrow-icon" />
   </button>
-
+  
+  <!-- JavaScript -->
   <script src="script.js"></script>
+
 </body>
 </html>
